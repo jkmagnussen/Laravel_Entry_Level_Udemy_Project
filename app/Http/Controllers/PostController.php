@@ -81,4 +81,19 @@ class PostController extends Controller
     {
         //
     }
+
+    public function contact(){
+        $people = ['Joe', 'Loz', 'Babu', 'Mario'];
+        return view('contact', compact('people'));
+    }
+
+    public function show_post($id, $name, $password){
+
+        // ->with() method is great for small bits of data to be passed. 
+        // return view('post')->with('id', $id);
+
+        // Use compact() for multidata 
+
+        return view('post', compact('id', 'name', 'password'));
+    }
 }
