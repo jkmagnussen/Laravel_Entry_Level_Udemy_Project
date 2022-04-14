@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\PostController; //
+// use App\Http\Controllers\PostController; //
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +39,12 @@ use App\Http\Controllers\PostController; //
 
 
 Route::get('/post', 'App\Http\Controllers\PostController@index');
+
+Route::get('/contact','App\Http\Controllers\PostController@contact');
+
+Route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
+
+
 
 /*
 |--------------------------------------------------------------------------
