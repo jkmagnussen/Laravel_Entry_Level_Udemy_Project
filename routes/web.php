@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Post;
+
 // use App\Http\Controllers\PostController; //
 
 /*
@@ -38,14 +40,35 @@ use Illuminate\Support\Facades\Route;
 // }));
 
 
-Route::get('/post', 'App\Http\Controllers\PostController@index');
+// Route::get('/post', 'App\Http\Controllers\PostController@index');
 
-Route::get('/contact','App\Http\Controllers\PostController@contact');
+// Route::get('/contact','App\Http\Controllers\PostController@contact');
 
-Route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
+// Route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
 
+Route::get('/insert', function(){
+    DB::insert('insert into posts(title, body) values(?, ?)', ['PHP with Laravel', 'Laravel example php ']);
+});
 
+Route::get('/read', function(){
+    $results = DB::select('select * from posts where id = ?', [1]);
 
+    foreach($results as $post){
+        return $post->title;
+    }
+});
+
+Route::get('/update', function(){
+    $updated = DB::update('update posts set title = "updated title" where id = ?', [1]);
+
+    return $updated;
+});
+
+Route::get('/delete', function(){
+
+    DB::delete('delete from posts where id = ?', [1]);
+
+});
 /*
 |--------------------------------------------------------------------------
 | Application routes
@@ -57,4 +80,26 @@ Route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@s
 
 Route::group(['middleware' => ['web']], function (){
 
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT - ORM (Object Relational Model)
+|--------------------------------------------------------------------------
+
+*/
+
+Route::get('/read', function(){
+   
+    // $posts = Post::all();
+
+    $post = Post::find(4);
+
+    // foreach($posts as $post){
+    //     return $post->title;
+    // }
+
+    return $post->title;
+    
 });
