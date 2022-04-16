@@ -90,7 +90,7 @@ Route::group(['middleware' => ['web']], function (){
 
 */
 
-Route::get('/read', function(){
+Route::get('/find', function(){
    
     // $posts = Post::all();
 
