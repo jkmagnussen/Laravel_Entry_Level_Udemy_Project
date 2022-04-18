@@ -90,16 +90,24 @@ Route::group(['middleware' => ['web']], function (){
 
 */
 
-Route::get('/find', function(){
+// Route::get('/find', function(){
    
-    // $posts = Post::all();
+//     // $posts = Post::all();
 
-    $post = Post::find(4);
+//     $post = Post::find(4);
 
-    // foreach($posts as $post){
-    //     return $post->title;
-    // }
+//     // foreach($posts as $post){
+//     //     return $post->title;
+//     // }
 
-    return $post->title;
+//     return $post->title;
     
+// });
+
+Route::get('/findwhere', function(){
+
+    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+
+    return $posts;
+
 });
