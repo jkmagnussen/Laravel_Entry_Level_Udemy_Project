@@ -69,6 +69,30 @@ Route::get('/delete', function(){
     DB::delete('delete from posts where id = ?', [1]);
 
 });
+
+// inserting data through eloquent
+
+Route::get('/basicinsert', function(){
+
+    $post = new Post;
+
+    $post->title = 'New Eloquent title insert';
+    $post->body = 'New eloquent content';
+
+    $post->save();
+
+});
+
+Route::get('/findinsert', function(){
+
+    $post = Post::find(2);
+
+    $post->title = 'New 2 Eloquent title insert';
+    $post->body = 'New 2 eloquent content';
+
+    $post->save();
+
+});
 /*
 |--------------------------------------------------------------------------
 | Application routes
