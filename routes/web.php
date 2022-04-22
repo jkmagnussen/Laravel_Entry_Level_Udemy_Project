@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
 
+// use App\Controller\PostsController;
+
 // use App\Http\Controllers\PostController; //
 
 /*
@@ -128,10 +130,23 @@ Route::group(['middleware' => ['web']], function (){
     
 // });
 
-Route::get('/findwhere', function(){
+Route::get('/findwhere', [PostsController::class, 'findPost']
 
-    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+// function(){
 
-    return $posts;
+//     $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+
+//     return $posts;
 
 });
+
+Route::get('/insert', function(){
+
+
+    echo "hello";
+
+});
+
+Route::post("/insert", function($request){
+    //$data = $request->all();
+})->name("insertThing");
