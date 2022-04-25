@@ -125,7 +125,7 @@ Route::group(['middleware' => ['web']], function (){
 //     // }
 
 //     return $post->title;
-//comment
+//comments
     
 // });
 
@@ -139,6 +139,7 @@ Route::group(['middleware' => ['web']], function (){
 
 Route::get('/create', function(){
     Post::create(['title'=>'the create method', 'body'=>'wow']);
+<<<<<<< HEAD
 });
 
 git remote set-url origin https://github.com/jkmagnussen/Laravel_Entry_Level_Udemy_Project.git
@@ -150,3 +151,6 @@ git config --global --unset http.proxy
 Expand snippet
 Then run
 git remote  set-url origin <https://github.com/jkmagnussen/Laravel_Entry_Level_Udemy_Project.git>
+=======
+});
+>>>>>>> 7c7e5cc73d41ebf7c3c194430e285ca347898387
