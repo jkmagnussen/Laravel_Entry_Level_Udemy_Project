@@ -109,7 +109,7 @@ Route::group(['middleware' => ['web']], function (){
 
 /*
 |--------------------------------------------------------------------------
-| ELOQUENT - ORM (Object Relational Model)
+| ELOQUENT -- ORM (Object Relational Model)
 |--------------------------------------------------------------------------
 
 */
