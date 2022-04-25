@@ -124,7 +124,7 @@ Route::group(['middleware' => ['web']], function (){
 //     //     return $post->title;
 //     // }
 
-//     return $post->title;;
+//     return $post->title;
     
 // });
 
