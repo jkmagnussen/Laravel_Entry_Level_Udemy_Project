@@ -125,7 +125,7 @@ Route::group(['middleware' => ['web']], function (){
 //     // }
 
 //     return $post->title;
-//comment
+//commentt
     
 // });
 
@@ -140,3 +140,13 @@ Route::group(['middleware' => ['web']], function (){
 Route::get('/create', function(){
     Post::create(['title'=>'the create method', 'body'=>'wow']);
 });
+
+git remote set-url origin https://github.com/jkmagnussen/Laravel_Entry_Level_Udemy_Project.git
+
+
+I had issues like this and there is no one specific set of instructions to resolve this . however i tried running this command and it worked for me
+
+git config --global --unset http.proxy
+Expand snippet
+Then run
+git remote  set-url origin <https://github.com/jkmagnussen/Laravel_Entry_Level_Udemy_Project.git>
