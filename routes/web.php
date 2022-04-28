@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
 
-// use App\Http\Controllers\PostController; 
+use App\Http\Controllers\PostController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -140,3 +140,10 @@ Route::group(['middleware' => ['web']], function (){
 Route::get('/create', function(){
     Post::create(['title'=>'the create method', 'body'=>'wow']);
 });
+
+Route::get('/update', function(){
+    Post::where('id', 2)->where('is_admin', 0)->update(['title'=>'New PHP Title']);
+});
+
+
+Route::get('/formFill', [PostsController::class, 'findPost']);
