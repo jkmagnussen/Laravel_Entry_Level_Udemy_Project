@@ -146,4 +146,5 @@ Route::get('/update', function(){
 });
 
 
-Route::get('/formFill', [PostsController::class, 'findPost']);
+Route::get('/formFill', [PostController::class, 'findPost']);
+Route::post('/formCreate', [PostController::class, 'insertPost'])->name("formCreate");

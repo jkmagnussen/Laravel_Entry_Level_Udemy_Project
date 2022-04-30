@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -72,7 +73,7 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage..
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -95,5 +96,22 @@ class PostController extends Controller
         // Use compact() for multidata 
 
         return view('post', compact('id', 'name', 'password'));
+    }
+
+    public function findPost(){
+        // View::insertData.blade.php
+
+        return view('insertData', ["people"=>["james", "joe", "dan"]]);
+    }
+
+    public function insertPost(Request $request){
+        $newPost = new Post();
+
+        $newPost->title = "hello 123";
+        $newPost->body = $request->post()['nameInsert'];
+
+        $newPost->save();
+        
+
     }
 }
