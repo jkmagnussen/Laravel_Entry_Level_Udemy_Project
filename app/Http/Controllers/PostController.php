@@ -61,7 +61,7 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
