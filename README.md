@@ -78,3 +78,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<VirtualHost \*:80>
+DocumentRoot "/Users/josephmagnussen/Documents/Development/Udemy/Laravel_Entry_Level_Project/public"
+ServerName beginnerLaravel.test
+</VirtualHost>
