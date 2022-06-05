@@ -135,7 +135,7 @@ Route::group(['middleware' => ['web']], function (){
 
 //     $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
 
-//     return $posts;;
+//     return $posts;
 
 Route::get('/create', function(){
     Post::create(['title'=>'the create method', 'body'=>'wow']);
