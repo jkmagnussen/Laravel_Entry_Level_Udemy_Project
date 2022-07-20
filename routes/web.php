@@ -91,7 +91,7 @@ Route::get('/findinsert', function(){
     $post->title = 'New 2 Eloquent title insert';
     $post->body = 'New 2 eloquent content';
 
-    $post->save();
+    $post->save(); iug o876f
 
 });
 /*
@@ -100,7 +100,7 @@ Route::get('/findinsert', function(){
 |--------------------------------------------------------------------------
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
+| kernel and includes session state, CSRF protection, and more
 */
 
 Route::group(['middleware' => ['web']], function (){

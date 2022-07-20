@@ -81,5 +81,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <VirtualHost \*:80>
 DocumentRoot "/Users/josephmagnussen/Documents/Development/Udemy/Laravel_Entry_Level_Project/public"
-ServerName beginnerLaravel.test
+ServerName beginner-laravel.test
 </VirtualHost>
