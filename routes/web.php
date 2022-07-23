@@ -18,7 +18,7 @@ use App\Http\Controllers\PostController;
 */
 
 
-// Route::get('/', function ()
+// Route::get('/', function (){
 //     return view('welcome');
 // });
 
@@ -60,16 +60,16 @@ Route::get('/read', function(){
 });
 
 Route::get('/update', function(){
-    $updated = DB::update('update posts set title = "updated title" where id = ?', [1]);
+    $updated = DB::update('update posts set title = "new update" where id = ?', [2]);
 
     return $updated;
 });
 
-Route::get('/delete', function(){
+// Route::get('/delete', function(){
 
-    DB::delete('delete from posts where id = ?', [1]);
+//     DB::delete('delete from posts where id = ?', [1]);
 
-});
+// });
 
 // inserting data through eloquent
 
@@ -91,7 +91,7 @@ Route::get('/findinsert', function(){
     $post->title = 'New 2 Eloquent title insert';
     $post->body = 'New 2 eloquent content';
 
-    $post->save(); iug o876f
+    $post->save();
 
 });
 /*
@@ -106,7 +106,7 @@ Route::get('/findinsert', function(){
 Route::group(['middleware' => ['web']], function (){
 
 });
-
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -139,13 +139,25 @@ Route::group(['middleware' => ['web']], function (){
 //     return $posts;
 
 Route::get('/create', function(){
-    Post::create(['title'=>'the create method', 'body'=>'wow']);
+    Post::create(['title'=>'newWow', 'body'=>'newWow']);
 });
 
-Route::get('/update', function(){
-    Post::where('id', 2)->where('is_admin', 0)->update(['title'=>'New PHP Title']);
+// Route::get('/update', function(){
+//     Post::where('id', 2)->update(['title'=>'New PHP Title']);
+// });
+
+
+// Personal tests - 
+
+// Route::get('/formFill', [PostController::class, 'findPost']);
+// Route::post('/formCreate', [PostController::class, 'insertPost'])->name("formCreate");
+
+// Route::get('/delete', function(){
+
+//     $post = Post::find(5);
+//     $post->delete();
+// });
+
+Route::get('/delete2', function(){
+    Post::destroy(3);
 });
-
-
-Route::get('/formFill', [PostController::class, 'findPost']);
-Route::post('/formCreate', [PostController::class, 'insertPost'])->name("formCreate");

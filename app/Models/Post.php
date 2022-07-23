@@ -11,6 +11,9 @@ class Post extends Model
 
     protected $table = 'posts';
 
+
+    // Mass assignment - 
+    
     protected $fillable = [
         'title',
         'body'
