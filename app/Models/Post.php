@@ -2,20 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
-{
-    use HasFactory;
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+
+class Post extends Model {
+   
+    // use HasFactory;
 
     protected $table = 'posts';
-
 
     // Mass assignment - 
     
     protected $fillable = [
         'title',
-        'body'
+        'body',
+        'is_admin'
     ];
 }

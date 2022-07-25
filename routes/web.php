@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Models\Post;
 
-use App\Http\Controllers\PostController; 
+// use App\Http\Controllers\PostController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +15,6 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great.
 |
 */
-
-
-// Route::get('/', function (){
-//     return view('welcome');
-// });
-
-// Route::get('/about', function () {
-//     return "Hi about page";
-// });
 
 // Route::get('/contact', function () {
 //     return "Hi i am contact";
@@ -47,31 +37,36 @@ use App\Http\Controllers\PostController;
 
 // Route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
 
+/*
+|--------------------------------------------------------------------------
+| DATABASE RAW SQL QUERIES
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/insert', function(){
-    DB::insert('insert into posts(title, body) values(?, ?)', ['PHP with Laravel', 'Laravel example php ']);
+    DB::insert('INSERT INTO posts(title, body) VALUES(?, ?)', ['PHP with Laravel', 'Laravel example php ']);
 });
 
 Route::get('/read', function(){
-    $results = DB::select('select * from posts where id = ?', [1]);
+    $results = DB::select('SELECT * FROM posts WHERE id = ?', [1]);
 
-    foreach($results as $post){
-        return $post->title;
-    }
+    return $results[0]->title;
 });
 
 Route::get('/update', function(){
-    $updated = DB::update('update posts set title = "new update" where id = ?', [2]);
+    $updated = DB::update('UPDATE posts SET title = "new update" WHERE id = ?', [1]);
 
     return $updated;
 });
 
-// Route::get('/delete', function(){
+Route::get('/delete', function(){
+    $deleted = DB::delete('DELETE FROM posts WHERE id = ?', [1]);
 
-//     DB::delete('delete from posts where id = ?', [1]);
+    return $deleted;
+});
 
-// });
 
-// inserting data through eloquent
+// upto here 
 
 Route::get('/basicinsert', function(){
 
@@ -86,7 +81,7 @@ Route::get('/basicinsert', function(){
 
 Route::get('/findinsert', function(){
 
-    $post = Post::find(2);
+    $post = Post::find(3);
 
     $post->title = 'New 2 Eloquent title insert';
     $post->body = 'New 2 eloquent content';
@@ -114,50 +109,3 @@ Route::group(['middleware' => ['web']], function (){
 |--------------------------------------------------------------------------
 
 */
-
-// Route::get('/find', function(){
-   
-//     // $posts = Post::all();
-
-//     $post = Post::find(4);
-
-//     // foreach($posts as $post){
-//     //     return $post->title;
-//     // }
-
-//     return $post->title;
-
-    
-// });
-
-// Route::get('/findwhere', [PostsController::class, 'findPost']
-
-// function(){
-
-//     $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
-
-//     return $posts;
-
-Route::get('/create', function(){
-    Post::create(['title'=>'newWow', 'body'=>'newWow']);
-});
-
-// Route::get('/update', function(){
-//     Post::where('id', 2)->update(['title'=>'New PHP Title']);
-// });
-
-
-// Personal tests - 
-
-// Route::get('/formFill', [PostController::class, 'findPost']);
-// Route::post('/formCreate', [PostController::class, 'insertPost'])->name("formCreate");
-
-// Route::get('/delete', function(){
-
-//     $post = Post::find(5);
-//     $post->delete();
-// });
-
-Route::get('/delete2', function(){
-    Post::destroy(3);
-});
