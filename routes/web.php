@@ -66,7 +66,7 @@ Route::get('/delete', function(){
 });
 
 
-// up to hereeee
+// up to hereee
 
 Route::get('/basicinsert', function(){
 
