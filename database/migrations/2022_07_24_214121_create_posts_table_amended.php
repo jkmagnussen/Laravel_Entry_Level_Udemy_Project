@@ -19,7 +19,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations
      *
      * @return void
      */
@@ -29,4 +29,4 @@ return new class extends Migration
             $table->dropColumn('is_admin');
         });
     }
-};
+};  
