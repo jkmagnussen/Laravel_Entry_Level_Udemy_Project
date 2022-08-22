@@ -66,14 +66,14 @@ Route::get('/delete', function(){
 });
 
 
-// up to her
+// up to here
 
 Route::get('/basicinsert', function(){
 
     $post = new Post;
 
-    $post->title = 'New Eloquent title insert';
-    $post->body = 'New eloquent content';
+    $post->title = '2 New Eloquent title insert';
+    $post->body = '2 New eloquent content';
 
     $post->save();
 
