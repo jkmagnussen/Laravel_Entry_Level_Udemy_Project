@@ -66,7 +66,7 @@ Route::get('/delete', function(){
 });
 
 
-// up to her
+// up to heree
 
 Route::get('/basicinsert', function(){
 
@@ -87,7 +87,7 @@ Route::get('/findinsert', function(){
     $post->body = 'New 2 eloquent content';
 
     $post->save();
-
+ 
 });
 /*
 |--------------------------------------------------------------------------
