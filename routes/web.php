@@ -66,32 +66,9 @@ Route::get('/delete', function(){
 });
 
 
-// up to heree.
-
-Route::get('/basicinsert', function(){
-
-    $post = new Post;
-
-    $post->title = '2 New Eloquent title insert';
-    $post->body = '2 New eloquent content';
-
-    $post->save();
-
-});
-
-Route::get('/findinsert', function(){
-
-    $post = Post::find(3);
-
-    $post->title = 'New 2 Eloquent title insert';
-    $post->body = 'New 2 eloquent content';
-
-    $post->save();
- 
-});
 /*
 |--------------------------------------------------------------------------
-| Application routes
+| Application routess
 |--------------------------------------------------------------------------
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
@@ -108,5 +85,48 @@ Route::group(['middleware' => ['web']], function (){
 |--------------------------------------------------------------------------
 | ELOQUENT -- ORM (Object Relational Model)
 |--------------------------------------------------------------------------
-
 */
+
+Route::get('/read', function(){
+
+    $posts = Post::all();
+
+    foreach ($posts as $post){
+        return $post->title;
+    }
+});
+
+Route::get('/find', function(){
+
+    $post = Post::find(3);
+
+    return $post->title;
+ 
+});
+
+Route::get('/findwhere', function(){
+
+    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+
+    return $posts;
+
+});
+
+Route::get('findmore', function(){
+
+    $posts = Post::findOrFail(2);
+
+    return $posts;
+});
+
+
+Route::get('/basicinsert', function(){
+
+    $post = Post::find(5);
+
+    $post->title = 'changes';
+    $post->body = 'chnages';
+
+    $post->save();
+
+});
