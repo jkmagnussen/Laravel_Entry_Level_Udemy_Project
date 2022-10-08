@@ -68,7 +68,7 @@ Route::get('/delete', function(){
 
 /*
 |--------------------------------------------------------------------------
-| Application routes
+| Application routes.
 |--------------------------------------------------------------------------
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
