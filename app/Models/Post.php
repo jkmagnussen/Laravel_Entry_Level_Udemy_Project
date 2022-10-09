@@ -23,4 +23,9 @@ class Post extends Model {
         'body',
         'is_admin'
     ];
+
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'id', 'user_id');
+    }
 } 

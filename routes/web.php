@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
 
+
+
 // use App\Http\Controllers\PostController; 
 
 /*
@@ -195,10 +197,38 @@ Route::get('/forcedelete', function(){
 |--------------------------------------------------------------------------
 */
 
-//One to One relationship
+// One to One relationship
+// return $this->hasOne('App\Phone', 'foreign_key', 'local_key');
 
 Route::get('/user/{id}/post', function($id){
-
  return User::find($id)->post->title;
 
+});
+
+//One to One Inverse relationship
+// return $this->belongsTo('App\User', 'local_key', 'parent_key');
+
+Route::get('/post/{id}/user', function($id){
+    return Post::find($id)->user->name;
+});
+
+//One to Many Relationship
+Route::get('/posts', function(){
+   $user =  User::find(1);
+
+   foreach($user->posts as $post){   
+    echo $post->title . "<br>";
+   }
+});
+
+//Many to Many Relationship
+Route::get('/user/{id}/role', function($id){
+    
+    $user = User::find($id)->orderBy('id', 'desc')->get();
+
+    return $user;
+
+    // foreach($user->roles as $role){
+    //     return $role->name;
+    // }
 });

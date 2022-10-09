@@ -38,6 +38,13 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Post');
     }
 
+    public function posts(){
+
+        return $this->hasMany('App\Models\Post', 'user_id', 'id');
+        
+      //return $this->hasOne('App\Phone', 'foreign_key', 'local_key');
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -46,4 +53,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
 }
