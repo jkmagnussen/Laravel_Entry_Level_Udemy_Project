@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\User;
 
 // use App\Http\Controllers\PostController; 
 
@@ -59,11 +60,11 @@ Route::get('/update', function(){
     return $updated;
 });
 
-Route::get('/delete', function(){
-    $deleted = DB::delete('DELETE FROM posts WHERE id = ?', [1]);
+// Route::get('/delete', function(){
+//     $deleted = DB::delete('DELETE FROM posts WHERE id = ?', [1]);
 
-    return $deleted;
-});
+//     return $deleted;
+// });
 
 
 /*
@@ -128,5 +129,76 @@ Route::get('/basicinsert', function(){
     $post->body = 'chnages';
 
     $post->save();
+
+});
+
+Route::get('/create', function(){
+    Post::create(['title'=>'psssss', 'body'=>'games']);
+
+});
+
+Route::get('/update', function(){
+    Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'assoc array', 'body'=>'contents']);
+
+});
+
+Route::get('/delete', function(){
+    Post::where('',' ')->delete();
+
+    //or 
+    // $post = Post::find(3);
+    // $post->delete();
+
+    //or
+    //Post::destroy(3);
+
+    //or for multiple 
+    //Post::destroy([3,4]);
+
+});
+
+Route::get('/softdelete', function(){
+
+Post::find(3)->delete();
+
+});
+
+Route::get('/readsoftdelete', function(){
+
+    // $post = Post::find(2);
+    // return $post;
+
+    // $post = Post::withTrashed()->where('id', 2)->get();
+
+    // return $post;
+
+    $post = Post::onlyTrashed()->where('is_admin', 0)->get();
+
+    return $post;
+
+});
+
+Route::get('/restore', function(){
+
+    Post::withTrashed()->where('is_admin', 0)->restore();
+
+});
+
+Route::get('/forcedelete', function(){
+    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT Relationships
+|--------------------------------------------------------------------------
+*/
+
+//One to One relationship
+
+Route::get('/user/{id}/post', function($id){
+
+ return User::find($id)->post->title;
 
 });
