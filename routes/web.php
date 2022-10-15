@@ -232,3 +232,17 @@ Route::get('/user/{id}/role', function($id){
     //     return $role->name;
     // }
 });
+
+// Accessing the pivot table 
+
+Route::get('/user/pivot', function(){
+    $user = User::find(1);
+
+    foreach ($user->roles as $role){
+        return $role->pivot->created_at;
+    }
+});
+
+Route::get('/user/country', function(){
+
+});

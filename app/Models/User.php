@@ -54,7 +54,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /** 
+    Many-to-many relations require an intermediary table to manage the relationship.
+    The most straightforward implementation of the intermediary table, known as a pivot table, would consist of just two columns for storing the foreign keys pointing to each related pair of records. 
+    In this instance, 'role_user' is the pivot table. 
+    'user_id' & 'role_id' are foreign keys - pointing to each related pair of records.
+     */
+
     public function roles(){
-        return $this->belongsToMany('App\Models\Role');
+        return $this->belongsToMany('App\Models\Role', 'role_user', 'user_id', 'role_id')->withPivot('created_at');
     }
+
+    // First peramiter is for the Model's route, 
+    // the second is for the table name 
+    // The third is for the Foreign Key for Users table (What column should the Users table associate to)
+    // The fourth is for the Foreign Key for Roles table (What column should the Roles table associate to)
+
 }
