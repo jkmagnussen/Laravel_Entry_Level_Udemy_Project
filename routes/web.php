@@ -221,7 +221,7 @@ Route::get('/posts', function(){
    }
 });
 
-//Many to Many Relationship
+//Many to Many Relationship.
 Route::get('/user/{id}/role', function($id){
     
     $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
