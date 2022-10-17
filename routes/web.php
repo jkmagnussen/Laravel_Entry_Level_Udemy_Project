@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Country;
 
 
 
@@ -245,4 +246,12 @@ Route::get('/user/pivot', function(){
 
 Route::get('/user/country', function(){
 
+    $country = Country::find(4);
+
+    foreach ($country->posts as $post){
+        return $post;
+    }
+
 });
+
+// Post->user->COUNTRY (logic)
