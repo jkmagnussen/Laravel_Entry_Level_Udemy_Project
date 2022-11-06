@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            
-            $table->increments('id');
-            $table->string('title');
-            $table->string('body');
+        Schema::create('videos', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
-            $table->tinyInteger('is_admin')->default('0');
-            $table->softDeletes();
         });
     }
 
@@ -31,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            Schema::drop('posts');
-        });
+        Schema::dropIfExists('videos');
     }
 };

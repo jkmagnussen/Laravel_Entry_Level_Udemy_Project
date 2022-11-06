@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Photo;
 
 
 
@@ -254,4 +255,30 @@ Route::get('/user/country', function(){
 
 });
 
-// Post->user->COUNTRY (logic)....
+// Polymorphic Relations 
+
+Route::get('user/photos', function(){
+
+    $user = User::find(1);
+
+    foreach($user->photos as $photo){
+        return $photo;
+    }
+});
+
+// Route::get('post/{id}/photos', function($id){
+
+//     $post = Post::find($id);
+
+//     foreach($post->photos as $photo){
+//         echo $photo->path . "<br>";
+//     }
+// });
+
+Route::get('/photo/{id}/post', function($id){
+
+   $photo = Photo::findOrFail($id);
+
+   return $photo->imageable;
+
+});

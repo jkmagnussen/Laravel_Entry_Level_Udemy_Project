@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            
+        Schema::create('photos', function (Blueprint $table) {
+            // $table->id();
             $table->increments('id');
-            $table->string('title');
-            $table->string('body');
+            $table->string('path');
+            $table->integer('imageable_id');
+            $table->string('imageable_type');
             $table->timestamps();
-            $table->tinyInteger('is_admin')->default('0');
-            $table->softDeletes();
         });
+
+        
     }
 
     /**
@@ -31,8 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            Schema::drop('posts');
-        });
+        Schema::dropIfExists('photos');
     }
 };

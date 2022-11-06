@@ -70,4 +70,7 @@ class User extends Authenticatable
     // The third is for the Foreign Key for Users table (What column should the Users table associate to)
     // The fourth is for the Foreign Key for Roles table (What column should the Roles table associate to)
 
+    public function photos(){
+        return $this->morphMany('App\Models\Photo', 'imageable');
+    }
 }
