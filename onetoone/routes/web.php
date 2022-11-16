@@ -42,6 +42,6 @@ Route::get('/update', function(){
 //DELETE
 Route::get('/delete', function(){
     $user = User::findOrFail(1);
-    //Here we find the users address and delete it
+    //Here we find the users address and delete it.
     $user->address()->delete();
 });
