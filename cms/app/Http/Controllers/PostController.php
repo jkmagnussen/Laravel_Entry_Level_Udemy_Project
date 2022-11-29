@@ -36,7 +36,7 @@ class PostController extends Controller
 
     public function store(Request $request){
         Post::create($request->all());
-
+ 
         return redirect('/posts');
     }
 
@@ -46,9 +46,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+
+
+    public function show($id){
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -57,9 +59,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -90,12 +92,9 @@ class PostController extends Controller
     }
 
     public function show_post($id, $name, $password){
-
         // ->with() method is great for small bits of data to be passed. 
         // return view('post')->with('id', $id);
-
         // Use compact() for multidata 
-
         return view('post', compact('id', 'name', 'password'));
     }
 
