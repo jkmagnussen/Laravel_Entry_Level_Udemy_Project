@@ -10,7 +10,7 @@
     <input type="hidden" name="_method" value="PUT">
     <input type="text" name="title" placeholder="Enter title" value={{$post->title}}>
 
-    <!-- csrf_field(): This function can be used to generate the hidden input field in the HTML form. Note: This function should be written inside double curly braces. -->
+    <!-- csrf_field(): This function can be used to generate the hidden input field in the HTML form. Note: This function should be written inside double curly braces.. -->
 
     {{csrf_field()}}
 
