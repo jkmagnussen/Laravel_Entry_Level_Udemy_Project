@@ -43,3 +43,10 @@ Route::get('/update', function(){
 
     $user->posts()->whereId(1)->update(['title'=>'changed title test']);
 });
+
+Route::get('/delete', function(){
+
+    $user = User::find(1);
+
+    $user->posts()->whereId(2)->delete();
+});
