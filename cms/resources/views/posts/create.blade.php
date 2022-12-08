@@ -6,17 +6,25 @@
 
 <!-- <form method="post" action="/posts"> -->
 
-{!! Form::open() !!}
+{!! Form::open(['method'=>'POST', 'action'=> 'App\Http\Controllers\PostController@store']) !!}
 
-<input type="text" name="title" placeholder="Enter title">
+<div class="form-group">
 
-<!-- csrf_field(): This function can be used to generate the hidden input field in the HTML form. Note: This function should be written inside double curly braces. -->
+    {!! Form::label('title', 'Title:') !!}
+    {!! Form::text('title', null, ['class'=>'form-control']) !!}
 
-{{csrf_field()}}
+</div>
 
-<input type="submit" name="submit">
+<div class="form-group">
 
-</form>
+    {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+
+    <!-- csrf_field(): This function can be used to generate the hidden input field in the HTML form. Note: This function should be written inside double curly braces. -->
+
+    {{csrf_field()}}
+
+</div>
+{!! Form::close() !!}
 
 
 
