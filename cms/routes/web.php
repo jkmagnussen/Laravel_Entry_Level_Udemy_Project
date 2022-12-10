@@ -209,7 +209,7 @@ Route::get('/user/{id}/post', function($id){
 
 });
 
-//One to One Inverse relationship
+//One to One Inverse relationshipp
 // return $this->belongsTo('App\User', 'local_key', 'parent_key');
 
 Route::get('/post/{id}/user', function($id){
