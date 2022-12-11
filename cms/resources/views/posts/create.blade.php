@@ -26,6 +26,22 @@
 </div>
 {!! Form::close() !!}
 
+@if(count($errors) > 0)
+
+<div class="alert alert-dander">
+
+    <ul>
+
+        @foreach($errors->all() as $error)
+
+        <li>{{$error}}</li>
+
+        @endforeach
+
+    </ul>
+
+    @endif
 
 
-@endsection
+
+    @endsection

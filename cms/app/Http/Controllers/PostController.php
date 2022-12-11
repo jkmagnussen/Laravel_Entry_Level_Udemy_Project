@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
-class PostController extends Controller
-{
+class PostController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(){
 
         $posts = Post::all();
@@ -35,6 +35,12 @@ class PostController extends Controller
     //  */
 
     public function store(Request $request){
+
+        $this->validate($request, [
+            'title'=>'required'
+
+        ]);
+
         Post::create($request->all());
  
         return redirect('/posts');
@@ -71,8 +77,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         // return $request->all();
 
         $post = Post::findOrFail($id);
@@ -107,7 +112,6 @@ class PostController extends Controller
 
     public function findPost(){
         // View::insertData.blade.php
-
         return view('insertData', ["people"=>["james", "joe", "dan"]]);
     }
 
@@ -118,7 +122,5 @@ class PostController extends Controller
         $newPost->body = $request->post()['nameInsert'];
 
         $newPost->save();
-        
-
     }
 }

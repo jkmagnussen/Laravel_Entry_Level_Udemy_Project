@@ -310,4 +310,9 @@ Route::get('/tag/post', function(){
 |--------------------------------------------------------------------------
 */
 
-Route::resource('/posts', 'App\Http\Controllers\PostController');
+
+Route::group(['middleware'=>'web'], function(){
+
+    Route::resource('/posts', 'App\Http\Controllers\PostController');
+
+}); 
