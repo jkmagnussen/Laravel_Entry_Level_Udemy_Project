@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Photo;
 use App\Models\Tag;
 use App\Http\Controllers\PostController;
+use Carbon\Carbon;
 
 
 
@@ -312,7 +313,28 @@ Route::get('/tag/post', function(){
 
 
 Route::group(['middleware'=>'web'], function(){
-
     Route::resource('/posts', 'App\Http\Controllers\PostController');
+
+    Route::get('/dates', function(){
+        $date = new DateTime('+1 week');
+
+        echo $date->format('m-d-Y');
+        echo '<br>';
+
+        echo Carbon::now();
+    });
+
+    // This is an 'Accessor' it retrieves the data 
+    Route::get('/getname', function(){
+        $user = User::findOrFail(1);
+        echo $user->name;
+    });
+
+    // This is a 'Mutator' it sets the data 
+    Route::get('/setname', function(){
+        $user = User::findOrFail(1);
+        $user->name = "Balabing";
+        $user->save();
+    });
 
 }); 

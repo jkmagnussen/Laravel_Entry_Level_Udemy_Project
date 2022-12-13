@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\CreatePostRequest;
 
 class PostController extends Controller{
     /**
@@ -14,7 +15,9 @@ class PostController extends Controller{
 
     public function index(){
 
-        $posts = Post::all();
+        // $posts = Post::all();
+        // $posts = Post::latest()->get();
+        $posts = Post::latest()->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -34,16 +37,24 @@ class PostController extends Controller{
     //  * @return \Illuminate\Http\Response
     //  */
 
-    public function store(Request $request){
+    public function store(CreatePostRequest $request){
 
-        $this->validate($request, [
-            'title'=>'required'
+        $file = $request->file('file');
 
-        ]);
+        echo "<br>";
 
-        Post::create($request->all());
- 
-        return redirect('/posts');
+        echo $file->getClientOriginalName();
+
+
+        // This below validate code is no longer nescesary, because a new rerquest class has been created, within which the rules method has the title as required. 
+        // 
+        // $this->validate($request, [
+        //     'title'=>'required'
+
+        // ]);
+
+        // Post::create($request->all());
+        // return redirect('/posts');
     }
 
     /**

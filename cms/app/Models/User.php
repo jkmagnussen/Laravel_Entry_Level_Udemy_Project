@@ -73,12 +73,17 @@ class User extends Authenticatable
 //     public function photos(){
 //         return $this->morphMany('App\Models\Photo', 'imageable');
 //     }
+
+
+// This is an 'Accessor' it retrieves the data 
+    public function getNameAttribute($value){
+        // return ucfirst($value);
+        return strtoupper($value);
+    }
+
+// This is a 'Mutator' it sets the data 
+    public function setNameAttribute($value){
+    
+        $this->attributes['name'] = strtoupper($value);
+    }
 }
-
-/*
-|-------------------------------------------------
-| CRUD Application
-|-------------------------------------------------
-*/
-
-Route::resource('/posts', 'PostController');
