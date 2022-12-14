@@ -39,11 +39,21 @@ class PostController extends Controller{
 
     public function store(CreatePostRequest $request){
 
-        $file = $request->file('file');
+        // $file = $request->file('file');
+        $input = $request->all();
 
-        echo "<br>";
+        if($file = $request->file('file')){
 
-        echo $file->getClientOriginalName();
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+
+            $input['path'] = $name;
+        }
+
+        Post::create($input);
+
+
+        // echo $file->getClientOriginalName();
 
 
         // This below validate code is no longer nescesary, because a new rerquest class has been created, within which the rules method has the title as required. 

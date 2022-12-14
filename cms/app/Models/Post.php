@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model {
 
+    public $directory = "/images/";
+
     use SoftDeletes;
    
     // use HasFactory;
@@ -21,6 +23,7 @@ class Post extends Model {
     protected $fillable = [
         'title',
         'content',
+        'path'
 
     ];
 
@@ -40,5 +43,13 @@ class Post extends Model {
 
     public static function scopeLatest($query){
         return $query->orderBy('id', 'asc')->get();
+    } 
+
+// This is an 'Accessor' it retrieves the data 
+// When using an accessor, get is complusory, then the name of the column which you wish to focus on, in this case it is 'path' followed by 'Attribute. 
+    
+ public function getPathAttribute($value){
+        // return ucfirst($value);
+        return $this->directory . $value;
     }
 } 
