@@ -25,11 +25,16 @@ class HomeController extends Controller
 
         // $request->session()->put(['edwin'=>'instructor']);
         // return view('home');
+        // return $request->session()->all();
+        // session(['edwin2'=>'our teacher']);
+        // return session('edwin');
+        // $request->session()->forget('edwin2');
+        // $request->session()->flush();
 
         // return $request->session()->all();
 
-        session(['edwin2'=>'our teacher']);
+        $request->session()->flash('message', 'Post has been created');
 
-        return session('edwin');
+        return $request->session()->get('message');
     }
 }
