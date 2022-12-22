@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\CreatePostRequest;
 
-class PostController extends Controller{
+class PostController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-    public function index(){
+    public function index()
+    {
 
         // $posts = Post::all();
         // $posts = Post::latest()->get();
@@ -26,7 +28,8 @@ class PostController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    public function create()
+    {
         return view('posts.create');
     }
 
@@ -37,12 +40,13 @@ class PostController extends Controller{
     //  * @return \Illuminate\Http\Response
     //  */
 
-    public function store(CreatePostRequest $request){
+    public function store(CreatePostRequest $request)
+    {
 
         // $file = $request->file('file');
         $input = $request->all();
 
-        if($file = $request->file('file')){
+        if ($file = $request->file('file')) {
 
             $name = $file->getClientOriginalName();
             $file->move('images', $name);
@@ -75,7 +79,8 @@ class PostController extends Controller{
      */
 
 
-    public function show($id){
+    public function show($id)
+    {
         $post = Post::findOrFail($id);
         return view('posts.show', compact('post'));
     }
@@ -86,7 +91,8 @@ class PostController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id){
+    public function edit($id)
+    {
         $post = Post::findOrFail($id);
         return view('posts.edit', compact('post'));
     }
@@ -98,7 +104,8 @@ class PostController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         // return $request->all();
 
         $post = Post::findOrFail($id);
@@ -113,30 +120,35 @@ class PostController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id){
+    public function destroy($id)
+    {
         $post = Post::findOrFail($id);
         $post->delete();
         return redirect('/posts');
     }
 
-    public function contact(){
+    public function contact()
+    {
         $people = ['Joe', 'Loz', 'Babu', 'Mario'];
         return view('contact', compact('people'));
     }
 
-    public function show_post($id, $name, $password){
+    public function show_post($id, $name, $password)
+    {
         // ->with() method is great for small bits of data to be passed. 
         // return view('post')->with('id', $id);
         // Use compact() for multidata 
         return view('post', compact('id', 'name', 'password'));
     }
 
-    public function findPost(){
+    public function findPost()
+    {
         // View::insertData.blade.php
-        return view('insertData', ["people"=>["james", "joe", "dan"]]);
+        return view('insertData', ["people" => ["james", "joe", "dan"]]);
     }
 
-    public function insertPost(Request $request){
+    public function insertPost(Request $request)
+    {
         $newPost = new Post();
 
         $newPost->title = "hello 123";
