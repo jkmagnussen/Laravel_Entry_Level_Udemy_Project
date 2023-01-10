@@ -33,4 +33,4 @@ Route::middleware('auth')->group(function () {
 
 // Details for general Auth check editing: 
 // username: jkmagnussen@outlook.compact(
-//     password newcmssystem
+//     password - newcmssystem
