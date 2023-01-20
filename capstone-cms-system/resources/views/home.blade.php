@@ -2,8 +2,6 @@
 
     @section('content')
 
-    <h1>HOME</h1>
-
     <h1 class="my-4">Page Heading
         <small>Secondary Text</small>
     </h1>
