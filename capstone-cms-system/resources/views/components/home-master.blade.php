@@ -152,10 +152,7 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('jquery.js') }}"></script>
-
-    <!-- NOW NOT NEEDED -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
 </body>
 
