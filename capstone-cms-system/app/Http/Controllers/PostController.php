@@ -17,8 +17,24 @@ class PostController extends Controller {
     }
 
     // reached up to section 198 on course 
+    // dont forget npm run dev 
+    // and npm run build on return
     public function store() {
-        auth()->user();
-        dd(request()->all());
+
+        $inputs = request()->validate([
+            'title' => 'required | min:8 | max:255',
+            'post_image' => 'file',
+            'body' => 'required'
+
+        ]);
+
+        if (request('post_image')) {
+            $inputs['post_image'] = request('post_image')->store('images');
+        }
+        // set up with symbolic link in config>fileSystems - FILESYSTEM_DISK=public
+        auth()->user()->posts()->create($inputs);
+
+        return back();
+        // dd(request()->all());
     }
 }
