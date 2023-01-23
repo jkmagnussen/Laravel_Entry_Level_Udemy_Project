@@ -7,6 +7,10 @@ use App\Models\Post;
 
 class PostController extends Controller {
 
+
+    public function index() {
+        return view('admin.posts.index');
+    }
     // Route Model Binding - get the post through as an argument, this is injecting the class as an argument
     public function show(Post $post) {
         return view('blog-post', ['post' => $post]);
@@ -16,9 +20,7 @@ class PostController extends Controller {
         return view('admin.posts.create');
     }
 
-    // reached up to section 198 on course 
-    // dont forget npm run dev 
-    // and npm run build on return
+
     public function store() {
 
         $inputs = request()->validate([
