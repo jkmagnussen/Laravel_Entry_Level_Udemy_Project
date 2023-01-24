@@ -19,9 +19,7 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-fluid rounded" src="{{$post->post_image}}" alt="">
-
-    <hr>
+    <img class="img-fluid rounded" src="{{$post->post_image}}" <hr>
 
     <!-- Post Content -->
     <p class="lead">{{$post->body}}</p>

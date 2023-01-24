@@ -9,7 +9,9 @@ class PostController extends Controller {
 
 
     public function index() {
-        return view('admin.posts.index');
+
+        $posts = Post::all();
+        return view('admin.posts.index', ['posts' => $posts]);
     }
     // Route Model Binding - get the post through as an argument, this is injecting the class as an argument
     public function show(Post $post) {
