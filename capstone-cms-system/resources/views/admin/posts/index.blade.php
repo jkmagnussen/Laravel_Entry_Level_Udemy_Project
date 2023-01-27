@@ -4,6 +4,14 @@
 
     <h2>All Posts</h2>
 
+    @if(Session::has('message'))
+    <div class="alert alert-danger">{{Session::get('message')}}</div>
+    @elseif(Session::has('uploaded'))
+    <div class="alert alert-success">{{Session::get('uploaded')}}</div>
+    @elseif(Session::has('post-update-message'))
+    <div class="alert alert-success">{{Session::get('post-update-message')}}</div>
+    @endif
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -19,6 +27,7 @@
                             <th>Image</th>
                             <th>Created</th>
                             <th>Updated</th>
+                            <th>Delete</th>
 
                         </tr>
                     </thead>
@@ -30,6 +39,7 @@
                             <th>Image</th>
                             <th>Created</th>
                             <th>Updated</th>
+                            <th>Delete</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -38,16 +48,21 @@
                             <td>{{$post->id}}</td>
                             <td>{{$post->user->name}}</td>
 
-                            <td>{{$post->title}}</td>
+                            <td><a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a></td>
                             <td>
-                                <div>
-                                    <image width="100px" src="{{asset($post->post_image)}}" alt="">
-                                    </image>
-                                </div>
-
+                                <image width="100px" src="{{asset($post->post_image)}}" alt="">
+                                </image>
                             </td>
                             <td>{{$post->created_at->diffForHumans()}}</td>
                             <td>{{$post->updated_at->diffForHumans()}}</td>
+                            <td>
+                                <form method="post" action="{{route('post.destroy', $post->id)}}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
                         </tr>
 
                         @endforeach
