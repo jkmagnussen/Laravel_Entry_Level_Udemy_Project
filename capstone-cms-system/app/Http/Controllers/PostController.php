@@ -12,7 +12,11 @@ class PostController extends Controller {
 
     public function index() {
 
-        $posts = Post::all();
+        // $posts = Post::all();
+
+        // This would ensure only the authenticated user can see - access/ edit posts 
+        $posts = auth()->user()->posts;
+
         return view('admin.posts.index', ['posts' => $posts]);
     }
     // Route Model Binding - get the post through as an argument, this is injecting the class as an argument.
@@ -67,7 +71,13 @@ class PostController extends Controller {
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
 
-        $post->update();
+        // For using policies - 
+        // $this->authorize('update', $post);
+
+
+
+
+        $post->save();
 
         Session::flash('post-update-message', $inputs['title'] . ' - was successfully updated');
         return redirect()->route('post.index');
