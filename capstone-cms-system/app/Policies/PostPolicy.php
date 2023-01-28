@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PostPolict {
+class PostPolicy {
     use HandlesAuthorization;
 
     /**
@@ -27,7 +27,7 @@ class PostPolict {
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(User $user, Post $post) {
-        //
+        return $user->id === $post->user_id;
     }
 
     /**
@@ -37,7 +37,7 @@ class PostPolict {
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(User $user) {
-        //
+        return $user->is($user);
     }
 
     /**
@@ -48,8 +48,7 @@ class PostPolict {
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(User $user, Post $post) {
-        // return true;
-        // $user->id === $post->user_id;
+        return $user->id === $post->user_id;
     }
 
     /**
@@ -60,7 +59,7 @@ class PostPolict {
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(User $user, Post $post) {
-        //
+        return $user->id === $post->user_id;
     }
 
     /**

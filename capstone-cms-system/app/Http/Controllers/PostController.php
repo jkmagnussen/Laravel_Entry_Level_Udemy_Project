@@ -14,8 +14,7 @@ class PostController extends Controller {
 
         // $posts = Post::all();
 
-        // This would ensure only the authenticated user can see - access/ edit posts 
-        $posts = auth()->user()->posts;
+        $posts = auth()->user()->posts()->paginate(5);
 
         return view('admin.posts.index', ['posts' => $posts]);
     }
@@ -25,11 +24,14 @@ class PostController extends Controller {
     }
 
     public function create() {
+        $this->authorize('create', Post::class);
         return view('admin.posts.create');
     }
 
 
     public function store() {
+
+        $this->authorize('create', Post::class);
 
         $inputs = request()->validate([
             'title' => 'required | min:8 | max:255',
@@ -51,6 +53,7 @@ class PostController extends Controller {
 
 
     public function edit(Post $post) {
+        // $this->authorize('view', $post);
         return view('admin.posts.edit', ['post' => $post]);
     }
 
@@ -72,10 +75,8 @@ class PostController extends Controller {
         $post->body = $inputs['body'];
 
         // For using policies - 
-        // $this->authorize('update', $post);
-
-
-
+        // php artisan make:policy PostPolicy --model=Post
+        $this->authorize('update', $post);
 
         $post->save();
 
@@ -84,7 +85,7 @@ class PostController extends Controller {
     }
 
     public function destroy(Post $post) {
-
+        $this->authorize('delete', $post);
         $post->delete();
         Session::flash('message', $post->title . ' - has been deleted');
         return back();
