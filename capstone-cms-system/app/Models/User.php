@@ -42,6 +42,20 @@ class User extends Authenticatable {
     ];
 
     public function posts() {
+        // Has Many refers to a One To Many relationship.
+        // One user to Many Posts.
         return $this->hasMany(Post::class);
+    }
+
+    public function permissions() {
+        // Belongs to many refers to a Many to Many relationship.
+        // Many Users to Many Permissions.
+        return $this->belongsToMany(Permission::class);
+    }
+
+    public function roles() {
+        // Belongs to many refers to a Many to Many relationship.
+        // Many Users to Many Roles.
+        return $this->belongsToMany(Role::class);
     }
 }
