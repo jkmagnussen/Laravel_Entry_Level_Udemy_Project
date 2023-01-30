@@ -32,4 +32,9 @@ Route::middleware('auth')->group(function () {
 
 
     Route::delete('/admin/posts/{post}/destroy', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.destroy');
+
+    Route::get(
+        'admin/users/{user}/profile',
+        [App\Http\Controllers\UserController::class, 'show']
+    )->name('user.profile.show');
 });
