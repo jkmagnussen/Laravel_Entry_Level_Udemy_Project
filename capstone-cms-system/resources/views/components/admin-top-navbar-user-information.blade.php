@@ -8,7 +8,7 @@
                                     @endif
                                 </span>
                                 <img class="img-profile rounded-circle"
-                                    src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                    src="https://upload.wikimedia.org/wikipedia/en/3/31/CEO_Profile_pic_%281%29.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

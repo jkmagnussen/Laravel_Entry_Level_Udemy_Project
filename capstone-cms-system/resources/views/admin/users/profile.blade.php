@@ -13,11 +13,11 @@
 
                 <div class="mb-4">
                     <img class="img-profile rounded-circle"
-                        src="https://www.hollywoodreporter.com/wp-content/uploads/2022/11/Jean-Claude-Van-Damme-7766-16x9crop.jpg?w=1296">
+                        src="https://upload.wikimedia.org/wikipedia/en/3/31/CEO_Profile_pic_%281%29.jpg">
                 </div>
 
                 <div class="form-group">
-                    <input type="file">
+                    <input type="file" name="avatar">
                 </div>
 
 
