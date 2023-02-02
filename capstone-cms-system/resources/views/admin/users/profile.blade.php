@@ -8,12 +8,12 @@
 
         <div class="col-sm-6">
 
-            <form method="post" action="" enctype="multipart/form-data">
+            <form method="post" action="{{route('user.profile.update', $user->id)}}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
 
                 <div class="mb-4">
-                    <img class="img-profile rounded-circle"
-                        src="https://upload.wikimedia.org/wikipedia/en/3/31/CEO_Profile_pic_%281%29.jpg">
+                    <img class="img-profile rounded-circle" src="{{$user->avatar}}">
                 </div>
 
                 <div class="form-group">
@@ -23,22 +23,54 @@
 
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" name="username" class="form-control" id="username" value="{{$user->username}}">
+                    <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
+                        id="username" value="{{$user->username}}">
+
+                    @error('username')
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
+                        value="{{$user->name}}">
+
+                    @error('name')
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" name="email" class="form-control" id="email" value="{{$user->email}}">
+                    <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                        value="{{$user->email}}">
+
+                    @error('email')
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
+
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password " class="form-control" id="password">
+                    <input type="password" name="password " class="form-control @error('password') is-invalid @enderror"
+                        id="password">
+
+                    @error('password')
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="password-confirmation">Confirm Password</label>
-                    <input type="password" name="password_confirmation" class="form-control" id="password-confirmation">
+                    <input type="password" name="password_confirmation"
+                        class="form-control @error('password_confirmation') is-invalid @enderror"
+                        id="password-confirmation">
+
+                    @error('password_confirmation')
+                    <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
