@@ -26,7 +26,7 @@ class UserController extends Controller {
 
 
         if (request('avatar')) {
-            $input['avatar'] = request('avatar')->store('images');
+            $inputs['avatar'] = request('avatar')->store('images');
         }
 
         $user->update($inputs);
