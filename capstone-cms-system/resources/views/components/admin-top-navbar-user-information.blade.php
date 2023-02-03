@@ -7,8 +7,7 @@
 
                                     @endif
                                 </span>
-                                <img class="img-profile rounded-circle"
-                                    src="https://upload.wikimedia.org/wikipedia/en/3/31/CEO_Profile_pic_%281%29.jpg">
+                                <img class="img-profile rounded-circle" src="{{auth()->user()->avatar}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

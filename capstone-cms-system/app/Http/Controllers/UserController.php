@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller {
 
+    public function index() {
+
+        $users = User::paginate(10);
+        return view('admin.users.index', ['users' => $users]);
+    }
+
     //Route Model Binding - access the user model by injecting it directly into the function as an argument 
     public function show(User $user) {
         return view('admin.users.profile', ['user' => $user]);
@@ -30,6 +36,13 @@ class UserController extends Controller {
         }
 
         $user->update($inputs);
+        return back();
+    }
+
+    // Route model binding 
+    public function destroy(User $user) {
+        $user->delete();
+        session()->flash('user-deleted', 'User has been deleted');
         return back();
     }
 }
