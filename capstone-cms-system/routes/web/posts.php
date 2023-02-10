@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get(
-    '/admin/posts',
+    '/posts',
     [App\Http\Controllers\PostController::class, 'index']
 )->name('post.index');
 
