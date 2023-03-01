@@ -8,7 +8,11 @@
 </p>
 
 <VirtualHost \*:80>
+<<<<<<< HEAD
 DocumentRoot "/Users/josephmagnussen/Development/Udemy/PHP_with_Laravel_for_beginners/capstoneCmsSystem/public"
+=======
+DocumentRoot "/Users/josephmagnussen/Documents/Development/Udemy/PHP_with_Laravel_for_beginners/capstoneCmsSystem/public"
+>>>>>>> 9ad3218505408b3489d22c7b2a8002bcfb3c7776
 ServerName capstone-cms-system.test
 </VirtualHost>
 
