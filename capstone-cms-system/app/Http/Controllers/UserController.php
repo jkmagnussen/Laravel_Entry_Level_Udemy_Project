@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Role;
 
 class UserController extends Controller {
 
@@ -13,9 +14,12 @@ class UserController extends Controller {
         return view('admin.users.index', ['users' => $users]);
     }
 
-    //Route Model Binding - access the user model by injecting it directly into the function as an argument 
+    // Route Model Binding - access the user model by injecting it directly into the function as an argument 
     public function show(User $user) {
-        return view('admin.users.profile', ['user' => $user]);
+        return view('admin.users.profile', [
+            'user' => $user,
+            'roles' => Role::all()
+        ]);
     }
 
 
@@ -44,5 +48,9 @@ class UserController extends Controller {
         $user->delete();
         session()->flash('user-deleted', 'User has been deleted');
         return back();
+    }
+
+    public function attach(Role $role) {
+        dd($role);
     }
 }
