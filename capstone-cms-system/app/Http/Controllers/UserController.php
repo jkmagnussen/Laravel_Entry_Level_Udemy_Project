@@ -25,7 +25,7 @@ class UserController extends Controller {
 
 
     public function update(User $user) {
-        // up to 2:35 in the course 
+
         $inputs = request()->validate([
             'username' => ['required', 'string', 'max:255', 'alpha_dash'],
             'name' => ['required', 'string', 'max:255'],
@@ -50,7 +50,18 @@ class UserController extends Controller {
         return back();
     }
 
-    public function attach(Role $role) {
-        dd($role);
+    public function attach(User $user) {
+        $user->roles()->attach(request('role'));
+
+        return back();
+        // dd(request('role'));
+    }
+
+
+    public function detach(User $user) {
+        $user->roles()->detach(request('role'));
+
+        return back();
+        // dd(request('role'));
     }
 }
