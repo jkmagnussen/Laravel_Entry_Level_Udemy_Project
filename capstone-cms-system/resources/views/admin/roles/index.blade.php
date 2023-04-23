@@ -10,7 +10,7 @@
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" class="form-control">
                 </div>
-                <button class="btn btn-primary btn-block" type="submit">Create Role</button>
+                <button class="btn btn-primary btn-block" type="submit">Create a Role</button>
 
             </form>
         </div>
