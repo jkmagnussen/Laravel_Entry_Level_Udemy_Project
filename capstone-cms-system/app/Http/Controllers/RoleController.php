@@ -17,5 +17,5 @@ class RoleController extends Controller {
         dd(request('name'));
     }
 
-    // used command -  $user->roles()->attach($admin) to create a role_user link 
+    // command used -  $user->roles()->attach($admin) to create a role_user link 
 }
