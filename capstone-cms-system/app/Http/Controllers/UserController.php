@@ -14,7 +14,7 @@ class UserController extends Controller {
         return view('admin.users.index', ['users' => $users]);
     }
 
-    // Route Model Binding - access the user model by injecting it directly into the function as an argument..
+    // Route Model Binding - access the user model by injecting it directly into the function as an argument.
     public function show(User $user) {
         return view('admin.users.profile', [
             'user' => $user,
