@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use Illuminate\Support\Str;
@@ -41,7 +42,8 @@ class RoleController extends Controller {
     public function edit(Role $role) {
 
         return view('admin.roles.edit', [
-            'role' => $role
+            'role' => $role,
+            'permissions' => Permission::all()
         ]);
     }
 
@@ -59,5 +61,5 @@ class RoleController extends Controller {
         return back();
     }
 
-    // command used -  $user->roles()->attach($admin) to create a role_user link 
+    // command -  $user->roles()->attach($admin) to create a role_user link 
 }
