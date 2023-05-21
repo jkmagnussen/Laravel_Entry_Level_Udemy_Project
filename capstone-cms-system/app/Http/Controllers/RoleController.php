@@ -11,7 +11,7 @@ class RoleController extends Controller {
 
 
     public function index() {
-        // echo "testing roleController index method";
+        // echo "testing roleController index method.";
         return view('admin.roles.index', [
             'roles' => Role::all()
         ]);
