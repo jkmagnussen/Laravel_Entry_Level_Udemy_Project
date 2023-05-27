@@ -2,7 +2,7 @@ PHP with Laravel for beginners - Become a Master in Laravel
 
 Course goals:
 
-This project is designed to excercise my abilities in Laravel, covering routes, Controllers, creating Views, using the templating engine Blade, connecting to a database, creating migrations, Laravel's ORM (Object Relational Mapper) and Raw SQL queries, Laravel Tinker, Database: Eloquent One to One - CRUD, Database: Eloquent One to Many - CRUD, Database: Eloquent Many to Many - CRUD, Database: Eloquent Polymorphic - CRUD, Form Validation, utilising third party libraries, uploading files, middleware and security, sessions, sending emails, WYSIWYG editor, how to impliment a commenting system / Disqus, creating a BULK functionality that utilises the CRUD, in addition to how to deploy Laravel on share hosting accounts, like godaddy..
+This project is designed to excercise my abilities in Laravel, covering routes, Controllers, creating Views, using the templating engine Blade, connecting to a database, creating migrations, Laravel's ORM (Object Relational Mapper) and Raw SQL queries, Laravel Tinker, Database: Eloquent One to One - CRUD, Database: Eloquent One to Many - CRUD, Database: Eloquent Many to Many - CRUD, Database: Eloquent Polymorphic - CRUD, Form Validation, utilising third party libraries, uploading files, middleware and security, sessions, sending emails, WYSIWYG editor, how to impliment a commenting system / Disqus, creating a BULK functionality that utilises the CRUD, in addition to how to deploy Laravel on share hosting accounts, like godaddy.
 
 course link: https://www.udemy.com/course/php-with-laravel-for-beginners-become-a-master-in-laravel/
 
