@@ -2,7 +2,7 @@ PHP with Laravel for beginners - Become a Master in Laravel
 
 Course goals:
 
-This project is designed to excercise my abilities in Laravel, covering routes, Controllers, creating Views, using the templating engine Blade, connecting to a database, creating migrations, Laravel's ORM (Object Relational Mapper) and Raw SQL queries, Laravel Tinker, Database: Eloquent One to One - CRUD, Database: Eloquent One to Many - CRUD, Database: Eloquent Many to Many - CRUD, Database: Eloquent Polymorphic - CRUD, Form Validation, utilising third party libraries, uploading files, middleware and security, sessions, sending emails, WYSIWYG editor, how to impliment a commenting system / Disqus, creating a BULK functionality that utilises the CRUD, in addition to how to deploy Laravel on share hosting accounts, like godaddy.
+This project is designed to excercise my abilities in Laravel, covering routes, Controllers, creating Views, using the templating engine Blade, connecting to a database, creating migrations, Laravel's ORM (Object Relational Mapper) and Raw SQL queries, Laravel Tinker, Database: Eloquent One to One - CRUD, Database: Eloquent One to Many - CRUD, Database: Eloquent Many to Many - CRUD, Database: Eloquent Polymorphic - CRUD, Form Validation, utilising third party libraries, uploading files, middleware and security, sessions, sending emails, WYSIWYG editor, how to impliment a commenting system / Disqus, creating a BULK functionality that utilises the CRUD, in addition to how to deploy Laravel on share hosting accounts, like godaddy..
 
 course link: https://www.udemy.com/course/php-with-laravel-for-beginners-become-a-master-in-laravel/
 
@@ -23,6 +23,15 @@ course link: https://www.udemy.com/course/php-with-laravel-for-beginners-become-
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# <<<<<<< HEAD
+
+<VirtualHost \*:80>
+DocumentRoot "/Users/josephmagnussen/Development/Udemy/PHP_with_Laravel_for_beginners/capstoneCmsSystem/public"
+ServerName capstone-cms-system.test
+</VirtualHost>
+
+> > > > > > > 0facad4 (readme)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -41,7 +50,12 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# <<<<<<< HEAD
+
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+
+> > > > > > > 0facad4 (readme)
+> > > > > > > If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Laravel Sponsors
 
@@ -78,8 +92,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<<<<<<< HEAD
 
 <VirtualHost \*:80>
 DocumentRoot "/Users/josephmagnussen/Documents/Development/Udemy/Laravel_Entry_Level_Project/public"
 ServerName beginner-laravel.test
 </VirtualHost>
+=======
+
+> > > > > > > 0facad4 (readme)
