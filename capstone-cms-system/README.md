@@ -8,8 +8,8 @@
 </p>
 
 <VirtualHost \*:80>
-DocumentRoot "/Users/josephmagnussen/Development/Udemy/PHP_with_Laravel_for_beginners/capstoneCmsSystem/public"
-ServerName capstone-cms-system.test
+DocumentRoot "/Users/jkmagnussen/Development/Udemy/PHP_with_Laravel_for_beginners/capstone-cms-system/public/index.php"
+ServerName capstone-cms.test
 </VirtualHost>
 
 ## About Laravel
