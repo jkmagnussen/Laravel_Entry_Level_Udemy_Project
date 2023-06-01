@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model {
     use HasFactory;
 
-    // should be changed to protected for production, this is a security issue 
+    // should be changed to protected for production, this is a security issue.
     protected $guarded = [];
 
 
