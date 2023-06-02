@@ -17,7 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
-    @vite(['resources/js/app.js', 'resources/css/app.scss'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
