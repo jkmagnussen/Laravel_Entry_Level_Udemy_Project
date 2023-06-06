@@ -26,3 +26,15 @@ Route::put(
     '/roles/{role}/update',
     [App\Http\Controllers\RoleController::class, 'update']
 )->name('roles.update');
+
+
+Route::put(
+    '/roles/{role}/attach',
+    [App\Http\Controllers\RoleController::class, 'attach_permission']
+)->name('role.permission.attach');
+
+
+Route::delete(
+    '/roles/{role}/detach',
+    [App\Http\Controllers\RoleController::class, 'detach_permission']
+)->name('role.permission.detach');

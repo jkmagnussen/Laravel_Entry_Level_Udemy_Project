@@ -17,7 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js', 'resources/css/app.scss'])
 </head>
 
 <body>
@@ -157,6 +157,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('jquery.js') }}"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+
 
 </body>
 
