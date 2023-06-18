@@ -75,7 +75,7 @@ class PostController extends Controller {
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
 
-        // For using policies - 
+        // For using policies --
         // php artisan make:policy PostPolicy --model=Post
         $this->authorize('update', $post);
 
