@@ -14,7 +14,7 @@ class PostController extends Controller {
 
         // $posts = Post::all();
 
-        // this is being pulled through the auth() method
+        // this is being pulled through the auth() method.
 
         $posts = auth()->user()->posts()->paginate(5);
 
