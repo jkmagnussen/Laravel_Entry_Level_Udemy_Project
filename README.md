@@ -1,5 +1,3 @@
-PHP with Laravel for beginners - Become a Master in Laravel
-
 <img src="./Certificate.jpg" alt="Certificate">
 
 Course goals:
